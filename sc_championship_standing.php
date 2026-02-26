@@ -155,9 +155,9 @@ header('Content-Type: application/json');
   {
     "place": 11,
     "number": 7,
-    "team": "Blanchard Racing Team",
+    "team": "CoolDrive Racing",
     "name": "James Golding",
-    "car": "Ford Mustang GT",
+    "car": "Unknown Car",
     "poles": 1,
     "wins": 0,
     "points": 131,
@@ -170,9 +170,9 @@ header('Content-Type: application/json');
   {
     "place": 12,
     "number": 3,
-    "team": "Blanchard Racing Team",
+    "team": "LIQUI MOLY BLAHST Racing",
     "name": "Aaron Cameron",
-    "car": "Ford Mustang GT",
+    "car": "Unknown Car",
     "poles": 0,
     "wins": 0,
     "points": 124,
