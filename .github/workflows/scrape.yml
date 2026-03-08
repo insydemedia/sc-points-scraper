@@ -1,11 +1,11 @@
 name: Scrape Supercars Standings
 
 on:
-  # Run daily at 3am Brisbane time (UTC+10 = 17:00 UTC previous day)
+  # Run every 2 hours
   schedule:
-    - cron: '0 17 * * *'
+    - cron: '0 */2 * * *'
 
-  # Allow manually triggering a run from the GitHub Actions tab
+  # Allow manual trigger from the GitHub Actions tab
   workflow_dispatch:
 
 jobs:
