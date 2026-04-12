@@ -214,7 +214,7 @@ header('Content-Type: application/json');
   },
   {
     "place": 15,
-    "number": 800,
+    "number": 8,
     "team": "R&J Batteries Racing",
     "name": "Andre Heimgartner",
     "car": "Toyota GR Supra",
