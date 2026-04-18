@@ -38,7 +38,7 @@ header('Content-Type: application/json');
     "team": "Mobil1 Truck Assist Racing",
     "name": "Ryan Wood",
     "car": "Toyota GR Supra",
-    "poles": 1,
+    "poles": 2,
     "wins": 1,
     "points": 664,
     "odds": {
