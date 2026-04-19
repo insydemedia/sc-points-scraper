@@ -280,7 +280,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 332,
+    "points": 307,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
