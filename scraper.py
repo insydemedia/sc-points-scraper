@@ -30,7 +30,7 @@ TEAMS_CAR_MAP = {
     "Objective Racing": "Ford Mustang GT",
     "Erebus Motorsport": "Chev Camaro ZL1",
     "LIQUI MOLY BLAHST Racing": "Ford Mustang GT",
-    
+    "CoolDrive Racing": "Ford Mustang GT",
 }
 
 def clean_int(text):
