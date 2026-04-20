@@ -29,6 +29,8 @@ TEAMS_CAR_MAP = {
     "PremiAir Racing": "Chev Camaro ZL1",
     "Objective Racing": "Ford Mustang GT",
     "Erebus Motorsport": "Chev Camaro ZL1",
+    "LIQUI MOLY BLAHST Racing": "Ford Mustang GT",
+    
 }
 
 def clean_int(text):
