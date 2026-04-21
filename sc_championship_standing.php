@@ -274,21 +274,6 @@ header('Content-Type: application/json');
   },
   {
     "place": 19,
-    "number": 38,
-    "team": "Shell V-Power Racing Team",
-    "name": "Rylan Gray",
-    "car": "Ford Mustang GT",
-    "poles": 0,
-    "wins": 0,
-    "points": 307,
-    "odds": {
-      "bet365": "0",
-      "sportsbet": "0",
-      "dabble": "0"
-    }
-  },
-  {
-    "place": 20,
     "number": 96,
     "team": "Brad Jones Racing",
     "name": "Macauley Jones",
@@ -303,7 +288,7 @@ header('Content-Type: application/json');
     }
   },
   {
-    "place": 21,
+    "place": 20,
     "number": 3,
     "team": "LIQUI MOLY BLAHST Racing",
     "name": "Aaron Cameron",
@@ -311,6 +296,21 @@ header('Content-Type: application/json');
     "poles": 0,
     "wins": 0,
     "points": 313,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
+  },
+  {
+    "place": 21,
+    "number": 38,
+    "team": "Shell V-Power Racing Team",
+    "name": "Rylan Gray",
+    "car": "Ford Mustang GT",
+    "poles": 0,
+    "wins": 0,
+    "points": 307,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
