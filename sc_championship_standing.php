@@ -38,7 +38,7 @@ header('Content-Type: application/json');
     "team": "Penrite Racing",
     "name": "Matthew Payne",
     "car": "Ford Mustang GT",
-    "poles": 2,
+    "poles": 3,
     "wins": 2,
     "points": 879,
     "odds": {
