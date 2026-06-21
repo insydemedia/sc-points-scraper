@@ -361,5 +361,20 @@ header('Content-Type: application/json');
       "sportsbet": "0",
       "dabble": "0"
     }
+  },
+  {
+    "place": 25,
+    "number": 17,
+    "team": "Shell V-Power Racing Team",
+    "name": "Todd Hazelwood",
+    "car": "Ford Mustang GT",
+    "poles": 0,
+    "wins": 0,
+    "points": 0,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
   }
 ]
