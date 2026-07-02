@@ -388,5 +388,35 @@
       "sportsbet": "0",
       "dabble": "0"
     }
+  },
+  {
+    "place": 27,
+    "number": 5,
+    "team": "Tickford Autosport",
+    "name": "Reuben Goodall",
+    "car": "Unknown Car",
+    "poles": 0,
+    "wins": 0,
+    "points": 0,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
+  },
+  {
+    "place": 28,
+    "number": 30,
+    "team": "Matt Stone Racing",
+    "name": "Aaron Seton",
+    "car": "Unknown Car",
+    "poles": 0,
+    "wins": 0,
+    "points": 0,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
   }
 ]
