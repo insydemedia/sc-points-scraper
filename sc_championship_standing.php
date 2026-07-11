@@ -53,7 +53,7 @@ header('Content-Type: application/json');
     "team": "Shell V-Power Racing Team",
     "name": "Brodie Kostecki",
     "car": "Ford Mustang GT",
-    "poles": 4,
+    "poles": 5,
     "wins": 5,
     "points": 1247,
     "odds": {
