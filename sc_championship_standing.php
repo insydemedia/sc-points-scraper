@@ -23,7 +23,7 @@ header('Content-Type: application/json');
     "team": "Red Bull Ampol Racing",
     "name": "Broc Feeney",
     "car": "Ford Mustang GT",
-    "poles": 3,
+    "poles": 4,
     "wins": 5,
     "points": 1703,
     "odds": {
