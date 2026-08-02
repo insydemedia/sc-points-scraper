@@ -9,7 +9,7 @@ header('Content-Type: application/json');
     "name": "Matthew Payne",
     "car": "Ford Mustang GT",
     "poles": 5,
-    "wins": 4,
+    "wins": 5,
     "points": 1810,
     "odds": {
       "bet365": "0",
