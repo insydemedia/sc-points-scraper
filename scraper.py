@@ -16,6 +16,8 @@ TEAMS_CAR_MAP = {
     "Red Bull Ampol Racing": "Ford Mustang GT",
     "Penrite Racing": "Ford Mustang GT",
     "Monster Castrol Racing": "Ford Mustang GT",
+    "Tickford Racing": "Ford Mustang GT",
+    "Tickford Autosport": "Ford Mustang GT",
     "DEWALT Racing": "Chev Camaro ZL1",
     "Shell V-Power Racing Team": "Ford Mustang GT",
     "Mobil1 Truck Assist Racing": "Toyota GR Supra",
@@ -23,14 +25,15 @@ TEAMS_CAR_MAP = {
     "Snowy River Caravans Racing": "Chev Camaro ZL1",
     "Brad Jones Racing": "Toyota GR Supra",
     "Blanchard Racing Team": "Ford Mustang GT",
+    "CoolDrive Racing": "Ford Mustang GT",
+    "LIQUI MOLY BLAHST Racing": "Ford Mustang GT",
     "Mobil1 Optus Racing": "Toyota GR Supra",
     "Bendix Racing": "Chev Camaro ZL1",
+    "Matt Stone Racing": "Chev Camaro ZL1",
     "R&J Batteries Racing": "Toyota GR Supra",
     "PremiAir Racing": "Chev Camaro ZL1",
     "Objective Racing": "Ford Mustang GT",
     "Erebus Motorsport": "Chev Camaro ZL1",
-    "LIQUI MOLY BLAHST Racing": "Ford Mustang GT",
-    "CoolDrive Racing": "Ford Mustang GT",
 }
 
 def clean_int(text):
@@ -41,16 +44,12 @@ def clean_int(text):
         return 0
     return int(clean_text)
 
-def scrape_standings():
-    logging.info(f"Fetching standings from {URL}")
-    try:
-        response = requests.get(URL, headers=HEADERS, timeout=15)
-        response.raise_for_status()
-    except Exception as e:
-        logging.error(f"Failed to fetch standings: {e}")
+def parse_standings_html(html_text):
+    """Parses Supercars standings HTML into a list of driver dictionaries."""
+    if not html_text:
         return None
 
-    soup = BeautifulSoup(response.text, "lxml")
+    soup = BeautifulSoup(html_text, "lxml")
     table = soup.find("table")
     if not table:
         logging.error("Could not find standings table on the page.")
@@ -70,9 +69,10 @@ def scrape_standings():
             continue
             
         # Determine format based on number of columns
-        # In 2026: 4 columns (Pos+Driver, Wins, Poles, Pts)
+        # In 2026 current format: 6+ columns (Pos, Driver, Wins, Poles, Pts, Gap, ...)
         # In 2025 Finals/Enduros: 5 columns (Pos, Driver, Wins, Poles, Pts)
-        if len(cells) == 5:
+        # In 2026 early format: 4 columns (Pos+Driver, Wins, Poles, Pts)
+        if len(cells) >= 5:
             pos_cell = cells[0]
             driver_cell = cells[1]
             wins_cell = cells[2]
@@ -85,21 +85,38 @@ def scrape_standings():
             poles_cell = cells[2]
             pts_cell = cells[3]
         
-        # Place is in a div with text containing the number
+        # Place is in a div with font-medium or direct in the cell
         place_elem = pos_cell.find("div", class_=lambda x: x and "font-medium" in x and "text-sm" in x)
-        place = int(place_elem.text.strip()) if place_elem else 0
+        if place_elem and place_elem.text.strip():
+            place = clean_int(place_elem.text.strip())
+        else:
+            place = clean_int(pos_cell.text.strip())
         
-        # Number is in a span with text-white
-        number_span = driver_cell.find("span", class_=lambda x: x and "text-white" in x)
-        number = int(number_span.text.strip()) if number_span else 0
+        # Number is in a span (with text-white or bg-dark-grey-2)
+        number_span = driver_cell.find("span", class_=lambda x: x and ("text-white" in x or "bg-dark-grey-2" in x))
+        if not number_span:
+            number_span = driver_cell.find("span")
+        number = clean_int(number_span.text.strip()) if number_span else 0
         
-        # Name is in a div with aria-label
+        # Name is in a div or anchor with aria-label
         name_div = driver_cell.find("div", attrs={"aria-label": True})
-        name = name_div.text.strip() if name_div else ""
+        if not name_div:
+            name_a = driver_cell.find("a", attrs={"aria-label": True})
+            name = name_a["aria-label"].strip() if name_a else ""
+        else:
+            name = name_div.text.strip()
         
         # Team is in a div with text-light-grey-4
         team_div = driver_cell.find("div", class_=lambda x: x and "text-light-grey-4" in x)
         team = team_div.text.strip() if team_div else ""
+        
+        # Fallback for team name if not found in specific class
+        if not team:
+            cell_text = driver_cell.text
+            for known_team in TEAMS_CAR_MAP:
+                if known_team in cell_text:
+                    team = known_team
+                    break
         
         # Parse wins, poles, points
         wins = clean_int(wins_cell.text.strip())
@@ -122,6 +139,17 @@ def scrape_standings():
         standings.append(driver_data)
         
     return standings
+
+def scrape_standings():
+    logging.info(f"Fetching standings from {URL}")
+    try:
+        response = requests.get(URL, headers=HEADERS, timeout=15)
+        response.raise_for_status()
+    except Exception as e:
+        logging.error(f"Failed to fetch standings: {e}")
+        return None
+
+    return parse_standings_html(response.text)
 
 def save_data(data):
     # Save as pure JSON file
