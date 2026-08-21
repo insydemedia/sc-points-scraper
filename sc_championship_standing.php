@@ -436,5 +436,20 @@ header('Content-Type: application/json');
       "sportsbet": "0",
       "dabble": "0"
     }
+  },
+  {
+    "place": 30,
+    "number": 15,
+    "team": "Supercheap Auto Racing",
+    "name": "Bayley Hall",
+    "car": "Unknown Car",
+    "poles": 0,
+    "wins": 0,
+    "points": 0,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
   }
 ]
