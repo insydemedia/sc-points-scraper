@@ -8,7 +8,7 @@ header('Content-Type: application/json');
     "team": "Penrite Racing",
     "name": "Matthew Payne",
     "car": "Ford Mustang GT",
-    "poles": 5,
+    "poles": 6,
     "wins": 5,
     "points": 1950,
     "odds": {
@@ -416,36 +416,6 @@ header('Content-Type: application/json');
     "poles": 0,
     "wins": 0,
     "points": 21,
-    "odds": {
-      "bet365": "0",
-      "sportsbet": "0",
-      "dabble": "0"
-    }
-  },
-  {
-    "place": 29,
-    "number": 5,
-    "team": "Tickford Autosport",
-    "name": "Ben Gomersall",
-    "car": "Ford Mustang GT",
-    "poles": 0,
-    "wins": 0,
-    "points": 0,
-    "odds": {
-      "bet365": "0",
-      "sportsbet": "0",
-      "dabble": "0"
-    }
-  },
-  {
-    "place": 30,
-    "number": 15,
-    "team": "Supercheap Auto Racing",
-    "name": "Bayley Hall",
-    "car": "Unknown Car",
-    "poles": 0,
-    "wins": 0,
-    "points": 0,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
