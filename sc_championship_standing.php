@@ -10,7 +10,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 7,
     "wins": 5,
-    "points": 2024,
+    "points": 2077,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -25,7 +25,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 4,
     "wins": 5,
-    "points": 1899,
+    "points": 1967,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -40,7 +40,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 3,
     "wins": 2,
-    "points": 1718,
+    "points": 1767,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -55,7 +55,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 5,
     "wins": 7,
-    "points": 1670,
+    "points": 1744,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -70,7 +70,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 2,
-    "points": 1622,
+    "points": 1684,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -85,7 +85,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 1,
     "wins": 2,
-    "points": 1564,
+    "points": 1602,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -99,8 +99,8 @@ header('Content-Type: application/json');
     "name": "Will Brown",
     "car": "Ford Mustang GT",
     "poles": 1,
-    "wins": 0,
-    "points": 1433,
+    "wins": 1,
+    "points": 1518,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -115,7 +115,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 1,
     "wins": 1,
-    "points": 1356,
+    "points": 1413,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -130,7 +130,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 2,
     "wins": 1,
-    "points": 1276,
+    "points": 1303,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -145,7 +145,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 1110,
+    "points": 1139,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -160,7 +160,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 1,
     "wins": 0,
-    "points": 1110,
+    "points": 1125,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -175,7 +175,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 1014,
+    "points": 1055,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -190,7 +190,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 1,
     "wins": 1,
-    "points": 999,
+    "points": 1034,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -205,7 +205,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 982,
+    "points": 994,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -220,7 +220,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 888,
+    "points": 933,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -235,7 +235,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 0,
     "wins": 0,
-    "points": 792,
+    "points": 817,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -244,13 +244,13 @@ header('Content-Type: application/json');
   },
   {
     "place": 17,
-    "number": 10,
-    "team": "Bendix Racing",
-    "name": "Zach Bates",
-    "car": "Chev Camaro ZL1",
+    "number": 3,
+    "team": "LIQUI MOLY BLAHST Racing",
+    "name": "Aaron Cameron",
+    "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 675,
+    "points": 694,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -259,13 +259,13 @@ header('Content-Type: application/json');
   },
   {
     "place": 18,
-    "number": 38,
-    "team": "Shell V-Power Racing Team",
-    "name": "Rylan Gray",
-    "car": "Ford Mustang GT",
+    "number": 10,
+    "team": "Bendix Racing",
+    "name": "Zach Bates",
+    "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 673,
+    "points": 688,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -274,13 +274,13 @@ header('Content-Type: application/json');
   },
   {
     "place": 19,
-    "number": 3,
-    "team": "LIQUI MOLY BLAHST Racing",
-    "name": "Aaron Cameron",
+    "number": 38,
+    "team": "Shell V-Power Racing Team",
+    "name": "Rylan Gray",
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 662,
+    "points": 684,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -295,7 +295,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 657,
+    "points": 680,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -310,7 +310,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 635,
+    "points": 645,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -325,7 +325,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 0,
     "wins": 0,
-    "points": 606,
+    "points": 625,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -340,7 +340,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 534,
+    "points": 555,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -370,7 +370,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 0,
     "wins": 0,
-    "points": 56,
+    "points": 72,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -409,13 +409,13 @@ header('Content-Type: application/json');
   },
   {
     "place": 28,
-    "number": 55,
-    "team": "Monster Castrol Racing",
-    "name": "Mark Winterbottom",
-    "car": "Ford Mustang GT",
+    "number": 15,
+    "team": "Supercheap Auto Racing",
+    "name": "Bayley Hall",
+    "car": "Unknown Car",
     "poles": 0,
     "wins": 0,
-    "points": 21,
+    "points": 27,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -430,7 +430,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 11,
+    "points": 25,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -439,13 +439,13 @@ header('Content-Type: application/json');
   },
   {
     "place": 30,
-    "number": 15,
-    "team": "Supercheap Auto Racing",
-    "name": "Bayley Hall",
-    "car": "Unknown Car",
+    "number": 55,
+    "team": "Monster Castrol Racing",
+    "name": "Mark Winterbottom",
+    "car": "Ford Mustang GT",
     "poles": 0,
     "wins": 0,
-    "points": 9,
+    "points": 21,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
