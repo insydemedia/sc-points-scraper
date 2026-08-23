@@ -98,7 +98,7 @@ header('Content-Type: application/json');
     "team": "Red Bull Ampol Racing",
     "name": "Will Brown",
     "car": "Ford Mustang GT",
-    "poles": 1,
+    "poles": 2,
     "wins": 1,
     "points": 1518,
     "odds": {
