@@ -364,8 +364,8 @@ header('Content-Type: application/json');
   },
   {
     "place": 25,
-    "number": 30,
-    "team": "Matt Stone Racing",
+    "number": 10,
+    "team": "Bendix Racing",
     "name": "Aaron Seton",
     "car": "Chev Camaro ZL1",
     "poles": 0,
@@ -424,8 +424,8 @@ header('Content-Type: application/json');
   },
   {
     "place": 29,
-    "number": 5,
-    "team": "Tickford Autosport",
+    "number": 55,
+    "team": "Monster Castrol Racing",
     "name": "Reuben Goodall",
     "car": "Ford Mustang GT",
     "poles": 0,
@@ -439,7 +439,7 @@ header('Content-Type: application/json');
   },
   {
     "place": 30,
-    "number": 55,
+    "number": 6,
     "team": "Monster Castrol Racing",
     "name": "Mark Winterbottom",
     "car": "Ford Mustang GT",
