@@ -439,6 +439,21 @@ header('Content-Type: application/json');
   },
   {
     "place": 30,
+    "number": 15,
+    "team": "Supercheap Auto Racing",
+    "name": "Craig Lowndes",
+    "car": "Unknown Car",
+    "poles": 0,
+    "wins": 0,
+    "points": 120,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
+  },
+  {
+    "place": 31,
     "number": 5,
     "team": "Tickford Autosport",
     "name": "Ben Gomersall",
