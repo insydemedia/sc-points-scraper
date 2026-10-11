@@ -466,20 +466,5 @@ header('Content-Type: application/json');
       "sportsbet": "0",
       "dabble": "0"
     }
-  },
-  {
-    "place": 32,
-    "number": 34,
-    "team": "Garry Rogers Motorsport",
-    "name": "James Moffat",
-    "car": "Unknown Car",
-    "poles": 0,
-    "wins": 0,
-    "points": 0,
-    "odds": {
-      "bet365": "0",
-      "sportsbet": "0",
-      "dabble": "0"
-    }
   }
 ]
