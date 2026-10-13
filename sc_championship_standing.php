@@ -160,7 +160,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 1,
     "wins": 1,
-    "points": 1423,
+    "points": 1433,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
