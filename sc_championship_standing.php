@@ -259,8 +259,8 @@ header('Content-Type: application/json');
   },
   {
     "place": 18,
-    "number": 99,
-    "team": "Erebus Motorsport",
+    "number": 36,
+    "team": "PremiAir Racing",
     "name": "Cooper Murray",
     "car": "Chev Camaro ZL1",
     "poles": 0,
@@ -424,6 +424,21 @@ header('Content-Type: application/json');
   },
   {
     "place": 29,
+    "number": 36,
+    "team": "PremiAir Racing",
+    "name": "Cooper Murray",
+    "car": "Chev Camaro ZL1",
+    "poles": 0,
+    "wins": 0,
+    "points": 271,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
+  },
+  {
+    "place": 30,
     "number": 15,
     "team": "Supercheap Auto Racing",
     "name": "Craig Lowndes",
@@ -438,7 +453,7 @@ header('Content-Type: application/json');
     }
   },
   {
-    "place": 30,
+    "place": 31,
     "number": 6,
     "team": "Monster Castrol Racing",
     "name": "Mark Winterbottom",
@@ -453,7 +468,22 @@ header('Content-Type: application/json');
     }
   },
   {
-    "place": 31,
+    "place": 32,
+    "number": 99,
+    "team": "Erebus Motorsport",
+    "name": "Jarrod Hughes",
+    "car": "Chev Camaro ZL1",
+    "poles": 0,
+    "wins": 0,
+    "points": 187,
+    "odds": {
+      "bet365": "0",
+      "sportsbet": "0",
+      "dabble": "0"
+    }
+  },
+  {
+    "place": 33,
     "number": 5,
     "team": "Tickford Autosport",
     "name": "Ben Gomersall",
@@ -468,7 +498,7 @@ header('Content-Type: application/json');
     }
   },
   {
-    "place": 32,
+    "place": 34,
     "number": 34,
     "team": "Garry Rogers Motorsport",
     "name": "James Moffat",
