@@ -37,7 +37,51 @@ TEAMS_CAR_MAP = {
     "PremiAir Racing": "Chev Camaro ZL1",
     "Objective Racing": "Ford Mustang GT",
     "Erebus Motorsport": "Chev Camaro ZL1",
+    "Supercheap Auto Racing": "Chev Camaro ZL1",
+    "Garry Rogers Motorsport": "Chev Camaro ZL1",
 }
+
+# Mapping 2026 full-time drivers to their commercial sponsor team names
+DRIVER_TEAM_MAP = {
+    "Matthew Payne": "Penrite Racing",
+    "Broc Feeney": "Red Bull Ampol Racing",
+    "William Brown": "Red Bull Ampol Racing",
+    "Will Brown": "Red Bull Ampol Racing",
+    "Brodie Kostecki": "Shell V-Power Racing Team",
+    "Kai Allen": "Penrite Racing",
+    "Cameron Waters": "Monster Castrol Racing",
+    "Cam Waters": "Monster Castrol Racing",
+    "Anton De Pasquale": "DEWALT Racing",
+    "Anton De_Pasquale": "DEWALT Racing",
+    "Chaz Mostert": "Mobil1 Optus Racing",
+    "Ryan Wood": "Mobil1 Truck Assist Racing",
+    "Jack Le Brocq": "Sherrin Rentals Racing",
+    "Jack Le_Brocq": "Sherrin Rentals Racing",
+    "Andre Heimgartner": "R&J Batteries Racing",
+    "Thomas Randle": "Monster Castrol Racing",
+    "James Golding": "CoolDrive Racing",
+    "Jayden Ojeda": "PremiAir Racing",
+    "David Reynolds": "Snowy River Caravans Racing",
+    "Zach Bates": "Bendix Racing",
+    "Cameron Hill": "Brad Jones Racing",
+    "Cooper Murray": "PremiAir Racing",
+    "Rylan Gray": "Shell V-Power Racing Team",
+    "Aaron Cameron": "LIQUI MOLY BLAHST Racing",
+    "Declan Fraser": "PremiAir Racing",
+    "Macauley Jones": "Brad Jones Racing",
+    "Jobe Stewart": "Erebus Motorsport",
+    "Jackson Walls": "Objective Racing",
+}
+
+def clean_driver_name(name):
+    if not name:
+        return ""
+    name = name.replace("_", " ").strip()
+    if name == "William Brown":
+        return "Will Brown"
+    if name == "Cameron Waters":
+        return "Cam Waters"
+    return name
 
 # Fallback enduro points in case live event result subpage is temporarily unreachable
 FALLBACK_ENDURO_POINTS = {
@@ -291,6 +335,98 @@ def parse_standings_html(html_text):
         
     return standings
 
+def parse_standings_json(html_text):
+    """
+    Parses Supercars championship standings from the Next.js RSC data stream.
+    Returns official season / Finals standings with playoff reset points.
+    """
+    if not html_text:
+        return None
+
+    try:
+        chunks = re.findall(r"self\.__next_f\.push\(\[1,\"(.*?)\"\]\)", html_text)
+        if not chunks:
+            return None
+
+        full_data = "".join(chunks).encode("utf-8").decode("unicode_escape")
+
+        # Look for driver entries containing totalSeasonPoints
+        idx = full_data.find('"totalSeasonPoints":')
+        if idx == -1:
+            return None
+
+        arr_start = full_data.rfind("[{", 0, idx)
+        if arr_start == -1:
+            return None
+
+        bracket_count = 0
+        arr_end = -1
+        for i in range(arr_start, len(full_data)):
+            if full_data[i] == "[":
+                bracket_count += 1
+            elif full_data[i] == "]":
+                bracket_count -= 1
+                if bracket_count == 0:
+                    arr_end = i + 1
+                    break
+
+        if arr_end == -1:
+            return None
+
+        raw_drivers = json.loads(full_data[arr_start:arr_end])
+        # Filter to full-time entrants (at least 20 races contested)
+        full_time = [d for d in raw_drivers if d.get("totalRace", 0) >= 20]
+        if len(full_time) < 20:
+            return None
+
+        # Sort by totalSeasonPoints descending, then wins descending
+        full_time_sorted = sorted(
+            full_time,
+            key=lambda d: (clean_int(str(d.get("totalSeasonPoints", 0))), clean_int(str(d.get("totalFirstPlace", 0)))),
+            reverse=True
+        )
+
+        standings = []
+        for idx, d in enumerate(full_time_sorted, 1):
+            raw_name = d.get("driverName", "")
+            name = clean_driver_name(raw_name)
+            num = clean_int(str(d.get("driverNumber", 0)))
+            team = DRIVER_TEAM_MAP.get(raw_name) or DRIVER_TEAM_MAP.get(name) or ""
+            if not team:
+                tname = d.get("teamName", "")
+                for kt in TEAMS_CAR_MAP:
+                    if kt.lower() in tname.lower():
+                        team = kt
+                        break
+            car = TEAMS_CAR_MAP.get(team, "Unknown Car")
+            points = clean_int(str(d.get("totalSeasonPoints", 0)))
+            wins = clean_int(str(d.get("totalFirstPlace", 0)))
+            poles = clean_int(str(d.get("totalPole", 0)))
+
+            standings.append({
+                "place": idx,
+                "number": num,
+                "team": team,
+                "name": name,
+                "car": car,
+                "poles": poles,
+                "wins": wins,
+                "points": points,
+                "odds": {"bet365": "0", "sportsbet": "0", "dabble": "0"}
+            })
+
+        return standings
+    except Exception as e:
+        logging.warning(f"Failed to parse Next.js standings JSON: {e}")
+        return None
+
+def parse_standings(html_text):
+    """Parses Supercars standings, prioritizing the official Next.js JSON stream with fallback to HTML table."""
+    standings = parse_standings_json(html_text)
+    if standings:
+        return standings
+    return parse_standings_html(html_text)
+
 def combine_standings(sprint_standings, enduro_pts_map, enduro_winners):
     """Combines Sprint Cup standings with Enduro Cup points and wins, re-ranking positions."""
     combined = []
@@ -317,9 +453,11 @@ def combine_standings(sprint_standings, enduro_pts_map, enduro_winners):
 
     return combined
 
-def scrape_standings(include_enduros=True):
+def scrape_standings(include_enduros=False):
     """
-    Fetches standings from Supercars.com and combines with Enduro Cup results.
+    Fetches standings from Supercars.com.
+    Prioritizes official Finals/Championship standings from the Next.js data stream,
+    falling back to HTML table parsing.
     """
     logging.info(f"Fetching standings from {URL}")
     try:
@@ -329,15 +467,21 @@ def scrape_standings(include_enduros=True):
         logging.error(f"Failed to fetch standings: {e}")
         return None
 
-    sprint_standings = parse_standings_html(response.text)
-    if not sprint_standings:
+    standings = parse_standings_json(response.text)
+    if standings:
+        logging.info(f"Successfully parsed official championship standings ({len(standings)} drivers) from Next.js stream.")
+        return standings
+
+    logging.info("Falling back to HTML table parsing.")
+    standings = parse_standings_html(response.text)
+    if not standings:
         return None
 
     if include_enduros:
         enduro_pts_map, enduro_winners = fetch_enduro_results()
-        return combine_standings(sprint_standings, enduro_pts_map, enduro_winners)
+        return combine_standings(standings, enduro_pts_map, enduro_winners)
 
-    return sprint_standings
+    return standings
 
 def save_data(data):
     # Save as pure JSON file
