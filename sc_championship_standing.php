@@ -10,7 +10,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 7,
     "wins": 5,
-    "points": 3376,
+    "points": 4150,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -25,7 +25,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 6,
     "wins": 7,
-    "points": 3372,
+    "points": 4120,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -40,7 +40,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 7,
     "wins": 8,
-    "points": 3325,
+    "points": 4096,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -55,7 +55,7 @@ header('Content-Type: application/json');
     "car": "Toyota GR Supra",
     "poles": 1,
     "wins": 3,
-    "points": 3316,
+    "points": 4078,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -70,7 +70,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 2,
     "wins": 1,
-    "points": 3267,
+    "points": 4066,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -85,7 +85,7 @@ header('Content-Type: application/json');
     "car": "Ford Mustang GT",
     "poles": 3,
     "wins": 2,
-    "points": 3232,
+    "points": 4057,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
@@ -100,7 +100,7 @@ header('Content-Type: application/json');
     "car": "Chev Camaro ZL1",
     "poles": 1,
     "wins": 2,
-    "points": 3216,
+    "points": 4048,
     "odds": {
       "bet365": "0",
       "sportsbet": "0",
